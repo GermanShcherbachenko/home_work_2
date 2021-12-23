@@ -13,7 +13,7 @@ public class GitHubWikiTest {
     }
 
     @Test
-    void SoftAssertionsPageHasJUnit5CodeSnippet() {
+    void softAssertionsPageHasJUnit5CodeSnippet() {
         open("selenide/selenide");
         $("#wiki-tab").click();
         $("[class='Box-row wiki-more-pages-link']").$("button").click();
@@ -22,4 +22,15 @@ public class GitHubWikiTest {
                 .click();
         $x("//li[.='Using JUnit5 extend test class:']/../following-sibling::div[1]//span[3][.='.']").shouldBe(visible);
     }
+
+//    тест для проверки первого задания
+    @Test
+    void checkCssSelectors() {
+        open("selenide/selenide/wiki/SoftAssertions");
+        String test1 = $("div a").getText();
+        String test2 = $("div").$("a").getText();
+        System.out.println(test1);
+        System.out.println(test2);
+    }
+//    тест для проверки первого задания
 }
