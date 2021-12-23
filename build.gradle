@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+}
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation (
+            'com.codeborne:selenide:6.1.1',
+            'org.junit.jupiter:junit-jupiter:5.8.2')
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
