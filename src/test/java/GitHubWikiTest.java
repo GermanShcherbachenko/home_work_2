@@ -16,10 +16,8 @@ public class GitHubWikiTest {
     void softAssertionsPageHasJUnit5CodeSnippet() {
         open("selenide/selenide");
         $("#wiki-tab").click();
-        $("[class='Box-row wiki-more-pages-link']").$("button").click();
-        $x("//ul[@data-filterable-for='wiki-pages-filter']//a[.='SoftAssertions']")
-                .shouldBe(visible) //проверку добавил исключительно из-за формулировки в ДЗ. Если оставить только .click(), то ничего не изменится
-                .click();
+        $x("//button[contains(text(), 'more pages')]").click();
+        $x("//a[.='SoftAssertions']").shouldBe(visible).click();
         $x("//li[.='Using JUnit5 extend test class:']/../following-sibling::div[1]//span[3][.='.']").shouldBe(visible);
     }
 
